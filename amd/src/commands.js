@@ -25,7 +25,7 @@ import {getButtonImage} from 'editor_tiny/utils';
 import {get_string as getString} from 'core/str';
 import {component, buttonName, clearAllButtonName, icon, iconclearall} from 'tiny_persistentresize/common';
 import Notification from 'core/notification';
-import ModalFactory from 'core/modal_factory';
+import ModalSaveCancel from 'core/modal_save_cancel';
 import ModalEvents from 'core/modal_events';
 import {getUsername} from 'tiny_persistentresize/options';
 import * as Storage from 'tiny_persistentresize/storage';
@@ -94,12 +94,14 @@ export const getSetup = async() => {
             text: clearAllMenuTitle,
             onAction: () => {
                 // Show confirmation dialog.
-                ModalFactory.create({
-                    type: ModalFactory.types.SAVE_CANCEL,
+                ModalSaveCancel.create({
                     title: clearAllConfirmTitle,
                     body: clearAllConfirmMessage,
+                    buttons: {
+                        save: yesString,
+                    },
+                    show: true,
                 }).then((modal) => {
-                    modal.setSaveButtonText(yesString);
                     modal.getRoot().on(ModalEvents.save, async() => {
                         try {
                             // Save the current editor's default height before clearing.
@@ -125,7 +127,6 @@ export const getSetup = async() => {
                             Notification.exception(error);
                         }
                     });
-                    modal.show();
                     return modal;
                 }).catch(Notification.exception);
             },
