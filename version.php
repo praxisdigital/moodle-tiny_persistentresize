@@ -25,8 +25,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component    = 'tiny_persistentresize';
-$plugin->release      = '1.1';
-$plugin->version      = 2025122902;
+$plugin->release      = '1.2';
+$plugin->version      = 2026112500;
 $plugin->requires     = 2024100700;
 $plugin->supported    = [405, 502];
 $plugin->maturity     = MATURITY_STABLE;
