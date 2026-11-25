@@ -35,3 +35,6 @@ $string['confirmationtitle'] = 'Editor size preference cleared';
 $string['menutitle'] = 'Clear editor size preference (for this editor)';
 $string['pluginname'] = 'Persistent resize';
 $string['privacy:metadata'] = 'The Persistent resize plugin doesn\'t store any personal data.';
+
+// Capabilities
+$string['persistentresize:use'] = 'Use Persistent resize in TinyMCE';
